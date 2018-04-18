@@ -5,14 +5,29 @@ body {
 .main {
   position: relative;
   overflow: hidden;
-  background-image: url(./dotgrid.svg);
+  background-image: url(./dotgrid2.svg);
   background-repeat: no-repeat;
 }
 
 @media screen and (min-width: 0em) and (max-width: 64em) {
   .main {
-    background-image: url(./dotgrid.svg);
-    background-size: 200%;
-    background-position: right;
+    background-image: url(./dotgrid3.svg);
+    background-size: 120%;
+    background-position: top / center;
   }
+}
+
+.browserCatch {
+  background: rgb(215,189,165);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+}
+
+.browserCatch h1 {
+  max-width: 50rem;
 }

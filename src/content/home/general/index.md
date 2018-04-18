@@ -1,20 +1,19 @@
 ---
 dateLoc: "19 juni 2018 - Oudemanhuispoort, Amsterdam"
-title: Journalistiek in het post-truth tijdperk
+title: Waarheid en vertrouwen – Journalistiek die terugvecht
 button: "Bestel tickets - €135 i.p.v. €165 (tot 15 mei)"
 details:
-  - "Eerste 15 freelancers - €82,50"
+  - "Eerste 15 freelancers - €75,00"
   - "Studenten - €25"
-dialog: "Tot 15 mei vroegboekkorting. Regulier - €135,- Freelancers - €82,50. Studenten - €25,-"
+dialog: "Tot 15 mei vroegboekkorting. Regulier - €135,- Freelancers - €75,00. Studenten - €25,-"
 navigation:
   - Sprekers
-  - Programma
-  - Tickets
-  - Over
+  - "Case\u2009studies"
+  - Debat
+  - "Tickets\u2009&\u2009Locatie"
 order: 1
 ---
-Waarheid en vertouwen stonden in 2017 centraal op de Expertisedag. Ook in 2018 is dit thema onverminderd urgent. Wat zijn de laatste ontwikkelingen op het gebied van het vinden, vertellen en verspreiden van (online) betrouwbaar nieuws.
+Waarheid en vertrouwen stonden in 2017 centraal op de Expertisedag. In 2018 is de urgentie van dit thema alleen maar gegroeid. 
+Wat kan de vertrouwensband tussen het publiek en de journalistiek vergroten en de afstand verkleinen? Welke technologische oplossingen zijn er? En wat zal altijd mensenwerk blijven? We zoomen in op journalisten die terugvechten met: publieksparticipatie in het onderzoeksproces, met blockchain-technologie, en via de laatste ontwikkelingen op het gebied van factchecking. Ook werpen we onze kritische blik op constructieve en oplossingsgerichte journalistiek als een mogelijke remedie.
 
-Wat kan technologie bijdragen om de afstand tussen het publiek en de journalistiek te verkleinen? En wat zal altijd mensenwerk blijven? We kijken dit jaar onder andere naar publieksparticipatie in het onderzoeksproces, blockchain-technologie, de laatste ontwikkelingen op het gebied van factchecking en de dialoog met de lezer. Ook werpen we onze kritische blik op de constructieve journalistiek als een mogelijke remedie.
-
-Zoals elk jaar brengt de expertisedag veel concrete tips voor journalisten die zich snel willen laten bijpraten: hoe de digitalisering aanwenden om beter nieuws te vinden, te checken en te verspreiden? De dag staat onder voorzitterschap van Bas Mesters, directeur van het Expertisecentrum Journalistiek.
+Zoals elk jaar brengen internationale pioniers veel concrete tips voor journalisten die zich snel willen laten bijpraten: hoe op digitale wijze nieuws beter te vinden, te checken en te verspreiden? Hoe is de waarheidsvinding te verbeteren en het vertrouwen met het publiek te herstellen? De Grote Expertisedag Nieuwe Media staat onder voorzitterschap van Bas Mesters, directeur van het Expertisecentrum Journalistiek.

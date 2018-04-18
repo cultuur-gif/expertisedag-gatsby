@@ -1,0 +1,7 @@
+.list {
+  width: 100%;
+}
+
+.blur {
+	filter: blur(3px);
+}

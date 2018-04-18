@@ -4,21 +4,31 @@
   "version": "1.0.0",
   "author": "Robert-Jan Korteschiel",
   "dependencies": {
+    "bowser": "^1.9.3",
     "classnames": "^2.2.5",
     "gatsby": "^1.9.241",
     "gatsby-image": "^1.0.43",
     "gatsby-link": "^1.6.39",
+    "gatsby-plugin-core-js": "^1.0.2",
     "gatsby-plugin-react-helmet": "^2.0.8",
     "gatsby-plugin-sharp": "^1.6.41",
     "gatsby-plugin-typography": "^1.7.18",
     "gatsby-source-filesystem": "^1.5.29",
     "gatsby-transformer-remark": "^1.7.39",
     "gatsby-transformer-sharp": "^1.6.22",
+    "immutable-ics": "^0.4.0",
+    "moment": "^2.22.1",
     "react-google-maps": "^9.4.5",
     "react-helmet": "^5.2.0",
     "react-scroll": "^1.7.8",
+    "react-twitter-widgets": "^1.7.1",
     "recompose": "^0.26.0"
   },
+  "browserslist": [
+    "> 1%",
+    "IE >= 7",
+    "last 2 versions"
+  ],
   "keywords": [
     "gatsby"
   ],

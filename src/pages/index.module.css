@@ -43,12 +43,12 @@
   }
 }
 
-.grid24 {
-  grid-column: 1 / span 24;
+.grid12 {
+  grid-column: auto / span 12;
 }
 
-.container {
-  display: flex;
+.grid24 {
+  grid-column: 1 / span 24;
 }
 
 /* Header */
@@ -68,7 +68,6 @@
 
 .nav {
   display: flex;
-  padding-top: 1.5rem;
   grid-column: span 24 / 25;
   grid-row: 1;
   justify-self: end;
@@ -114,7 +113,7 @@
 
 /* Don't like this typographic disturbance. */
 .title {
-  color: rgb(255, 253, 84);
+  color: rgb(255, 255, 0);
   font-size: 3.157rem;
   line-height: 4.2rem;
 }
@@ -136,6 +135,7 @@
   color: black;
   margin: 0;
   font-family: "Fedra Mono Medium";
+  white-space: nowrap;
 }
 
 .landingText {
@@ -153,12 +153,23 @@
   line-height: 2rem;
 }
 
+/* Twitter */
+
+.twitter {
+  background-color: rgb(244,244,244);
+}
+
+
+.twitter iframe {
+  display: block !important;
+}
+
 /* Location and costs */
 
 .location {
   background-color: rgb(244,244,244);
   position: relative;
-  padding: 0 0 0rem 0;
+  padding: 0 2rem 0rem 2rem;
 }
 
 @media screen and (min-width: 0em) and (max-width: 64em) {
@@ -181,6 +192,7 @@
   grid-column: 1 / span 12;
   height: 40rem;
   z-index: 1;
+  margin: 0 0 0 -2rem;
 }
 
 @media screen and (min-width: 0em) and (max-width: 64em) {
@@ -206,17 +218,16 @@
   }
 }
 
-.costs p, .footerInfo p{
-  color: #808080;
+.costs p {
+  color: rgb(118,118,118);;
 }
 
-.headingLocation {
-  color: #d1bda5 !important;
-}
+
+
+
+
 
 /* Footer */
-
-
 .footer {
   height: 35rem;
   background-color: rgb(244,244,244);
@@ -258,18 +269,23 @@
 
 .affiliatesHeader {
   grid-column: 1 / span 12;
-  margin: 2.8rem 0 1.4rem;
+  margin: 2.8rem 0 0rem;
   color: rgb(118,118,118);
 }
 
 .affiliateLogo {
+  padding: 1.4rem 0 0 0 0;
   grid-column: auto / span 5;
   align-self: center;
 }
 
+.affiliateLogo:nth-of-type(3n) {
+  grid-column: 7 / span 5;
+}
+
 @media screen and (min-width: 0em) and (max-width: 40em) {
   .affiliateLogo {
-    grid-column: 1 / span 12;
+    /* grid-column: 1 / span 12; */
   }
 }
 
@@ -278,6 +294,10 @@
   padding: 2.8rem 0 0 0;
   background-color: rgb(244,244,244);
   grid-column: 13 / span 12;
+}
+
+.footerInfo p {
+  color: rgb(118,118,118);;
 }
 
 @media screen and (min-width: 0em) and (max-width: 64em) {
