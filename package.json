@@ -22,7 +22,8 @@
     "react-helmet": "^5.2.0",
     "react-scroll": "^1.7.8",
     "react-twitter-widgets": "^1.7.1",
-    "recompose": "^0.26.0"
+    "recompose": "^0.26.0",
+    "slugify": "^1.2.9"
   },
   "browserslist": [
     "> 1%",

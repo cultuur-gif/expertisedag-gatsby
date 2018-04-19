@@ -4,7 +4,7 @@ function: President Solutions Journalism Network (SJN)
 featuredImage: ./keith.jpg
 order: 1
 ---
-Keith Hammonds is president van het Solutions Journalism Network (SJN). Het SJN ziet een grote noodzaak om de journalistiek te repareren. Onze huidige nieuwsvoorziening versterkt volgens Hammonds bij de lezers gevoelens van wrok, economisch fatalisme, cynisme en werkt vervreemdend. 
+[Keith Hammonds](https://www.alumni.hbs.edu/campaign/making-a-difference/Pages/individual-spotlights.aspx?num=5963) is president van het [Solutions Journalism Network](https://www.solutionsjournalism.org/) (SJN). Het SJN ziet een grote noodzaak om de journalistiek te repareren. Onze huidige nieuwsvoorziening versterkt volgens Hammonds bij de lezers gevoelens van wrok, economisch fatalisme, cynisme en werkt vervreemdend. 
 
 Journalistiek zou burgerschap juist moeten bevorderen. Dat doet Solutions Journalism Network door het publiek naast de dilemma’s oplossingsrichtingen te presenteren. In zijn keynote speech laat Keith zien hoe verschillende newsrooms deze aanpak hebben gebruikt om het vertrouwen terug te winnen en het publieke debat te verschuiven. 
 

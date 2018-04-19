@@ -17,38 +17,43 @@ import Button from "../components/Button"
 import ListItem from "../components/ListItem"
 
 // Styles
-import stylesNormal from "./index.module.css"
-import stylesResponsive from "./responsive.module.css"
+import stylesGrid from "./landingpage/grid.module.css"
+import stylesHeader from "./landingpage/header.module.css"
+import stylesLanding from "./landingpage/landing.module.css"
+import stylesProgramma from "./landingpage/programma.module.css"
+import stylesLocationcost from "./landingpage/locationcost.module.css"
+import stylesFooter from "./landingpage/footer.module.css"
 const styles = {
-  ...stylesNormal,
-  ...stylesResponsive
+  ...stylesGrid,
+  ...stylesHeader,
+  ...stylesLanding,
+  ...stylesProgramma,
+  ...stylesLocationcost,
+  ...stylesFooter
 }
 
 // Images
-import logo from "./logo.svg"
-import nose from "./nose.svg"
+import logo from "./landingpage/logo.svg"
+import nose from "./landingpage/nose.svg"
 
 const IndexPage = ({data}) => {
   const headerData = data.general.edges[0].node;
-  const footerData = data.general.edges[1].node;
+  const locCostData = data.general.edges[1].node;
+  const footerData = data.general.edges[2].node;
   return (
-    <div className={styles.centerer}>
+    <div className={styles.screen}>
       <div className={styles.page}>
         {/* Page header  */}
         <header className={classNames(styles.grid, styles.header)}>
-          <div className={styles.logo}>
-            <h1 className={styles.logoText}>Grote</h1>
-            <h1 className={styles.logoText}>Expertisedag</h1>
-            <h1 className={styles.logoText}>Nieuwe Media</h1>
-            <h1 className={styles.logoText}>2018</h1>
-          </div>
+          <img className={styles.logo} src={logo}/>
           <div className={styles.nav}>
             { headerData.frontmatter.navigation.map((navItem, key) => (
               <Link
+                className={styles.navItem}
                 key={key}
                 to={navItem}
                 smooth={true}>
-                <h3 className={styles.navItem}>{navItem}</h3>
+                {navItem}
               </Link>)
             )}
           </div>
@@ -62,8 +67,8 @@ const IndexPage = ({data}) => {
             <h1 className={styles.title}>{headerData.frontmatter.title}</h1>
             <Button text={headerData.frontmatter.button} color="purple" link="http://www.expertisecentrumjournalistiek.nl/agenda/19-juni-2018-de-grote-expertisedag-nieuwe-media/"/>
             { headerData.frontmatter.details.map((detail, key) => {
-              return (<div className={styles.detailBlock} key={key}>
-                <p className={styles.detailText}>{detail}</p>
+              return (<div className={styles.crumb} key={key}>
+                <p className={styles.crumbText}>{detail}</p>
               </div>)
             })}
           </div>
@@ -141,11 +146,18 @@ const IndexPage = ({data}) => {
         {/* Location and costs */}
         <section className={classNames(styles.grid, styles.location)} name={headerData.frontmatter.navigation[3]}>
           <div className={styles.map}>
-            <Map isMarkerShown apiKey={footerData.frontmatter.locationApiKey} zoom={parseFloat(footerData.frontmatter.locationZoom)} location={{lat: parseFloat(footerData.frontmatter.location[0]), lng: Number(footerData.frontmatter.location[1])}}/>
+            <Map
+              isMarkerShown
+              apiKey={locCostData.frontmatter.locationApiKey}
+              zoom={parseFloat(locCostData.frontmatter.locationZoom)}
+              location={{
+                lat: parseFloat(locCostData.frontmatter.location[0]),
+                lng: Number(locCostData.frontmatter.location[1])}}
+            />
           </div>
           <div className={styles.costs}>
             <Marquee title="Locatie & Kosten &" secundary={true} />
-            <div dangerouslySetInnerHTML={{ __html: footerData.html }}></div>
+            <div dangerouslySetInnerHTML={{ __html: locCostData.html }}></div>
           </div>
         </section>
 
@@ -166,9 +178,7 @@ const IndexPage = ({data}) => {
               </div>);
             })}
           </div>
-          <div className={styles.footerInfo}>
-            <p>{footerData.frontmatter.footerInfo}</p>
-          </div>
+          <div className={styles.footerInfo} dangerouslySetInnerHTML={{__html: footerData.html}} />
         </section>
       </div>
 
@@ -212,7 +222,6 @@ export const query = graphql`
                 }
               }
             }
-            footerInfo
             location
             locationZoom
           }

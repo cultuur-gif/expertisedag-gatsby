@@ -1,6 +1,7 @@
 import React from 'react'
 import Img from "gatsby-image";
 import classNames from 'classnames'
+import slugify from 'slugify'
 
 import styles from "./index.module.css";
 
@@ -9,7 +10,7 @@ import imgSmouter from "../../content/home/viewpoints/smouter.png";
 const Card = (props) => {
   const data = props.data.node;
   return (
-  <div className={classNames(styles.card, data.frontmatter.blur && styles.blur)}>
+  <div id={slugify(data.frontmatter.name)} className={classNames(styles.card, data.frontmatter.blur && styles.blur)}>
     {!data.frontmatter.leader && (<div className={styles.titleWrapper}>
       <h2 className={styles.title}>{data.frontmatter.name}</h2>
       <h3 className={styles.subtitle}>{data.frontmatter.function}</h3>

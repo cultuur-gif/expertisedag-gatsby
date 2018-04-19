@@ -1,0 +1,39 @@
+.header {
+  padding: 2rem;
+}
+
+.logo {
+  grid-column: 1 / 24;
+  grid-row: 1;
+  height: 10rem;
+}
+
+.logoText {
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  grid-column: span 24 / 25;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.navItem {
+  font-family: "Fedra Mono Medium", sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+  line-height: 1.4rem;
+  margin-bottom: 1.4rem;
+  letter-spacing: 1px;
+  color: rgb(102, 102, 102);
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 0 0 1rem;
+}
+
+@media screen and (min-width: 1em) and (max-width: 40em) {
+  .nav {
+    display: none;
+  }
+}

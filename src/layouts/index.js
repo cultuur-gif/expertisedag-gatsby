@@ -19,7 +19,7 @@ const TemplateWrapper = ({ children }) => {
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    {bowser.msie && <div className={styles.browserCatch}><h1>Deze website ondersteunt internet explorer niet. U wordt aangeraden uw browser te updaten</h1></div> }
+    {bowser.msie && <div className={styles.browserCatch}><h1>Deze website ondersteunt Internet Explorer niet. U wordt aangeraden uw browser te updaten. Of klik <a href="http://www.expertisecentrumjournalistiek.nl/grote-expertisedag-nieuwe-media-2018/">hier</a> om het programma op de website van het Expertisecentrum Journalistiek te bekijken.</h1></div> }
     {!bowser.msie && children()}
   </main>
 )}

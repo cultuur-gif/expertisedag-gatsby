@@ -30,12 +30,12 @@ h1, h2, h3, h4, h5, h6 {
 	color: white;
 	font-family: "Fedra Mono Medium", sans-serif;
 	font-weight: 100;
-	margin-bottom: 1rem;
+	margin-bottom: 1.4rem;
 }
 
-h1 {
+h1, q {
 	font-size: 1.777rem;
-	line-height: 2rem;
+	line-height: 2.8rem;
 }
 
 h2 {
@@ -46,8 +46,6 @@ h2 {
 h3 {
 	font-size: 1rem;
 	line-height: 1.4rem;
-	margin-bottom: 1.4rem;
-
 	color: rgb(255, 255, 0);
 	text-transform: uppercase;
 }
@@ -55,6 +53,7 @@ h3 {
 p, li {
 	font-size: 1rem;
 	line-height: 1.4rem;
+	margin-bottom: 1.4rem;
 
 	color: white;
 	font-weight: 100;
@@ -62,8 +61,10 @@ p, li {
 }
 
 a {
-	text-decoration: none;
+	text-decoration: underline;
 	cursor: pointer;
+	color: white;
+
 }
 
 a:hover {
@@ -73,8 +74,8 @@ a:hover {
 
 q {
 	font-family: "Fedra Serif A Book", sans-serif;
-	font-size: 2rem;
-	line-height: 3rem;
+	font-size: 1.777rem;
+	line-height: 2.8rem;
 	font-weight: 100;
 	color: white;
 }

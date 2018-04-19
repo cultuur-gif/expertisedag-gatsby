@@ -1,6 +1,6 @@
 ---
-name: Jacob Jacobsen
-quote: Is constructieve journalistiek tè politiek?
+name: Bas Mesters
+quote: ""
 leader: true
 order: 1
 ---
