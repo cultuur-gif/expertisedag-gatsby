@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import Img from "gatsby-image"
 import { Link } from "react-scroll"
-import { Timeline, Hashtag } from 'react-twitter-widgets'
+// import { Timeline, Hashtag } from 'react-twitter-widgets'
 import bowser from 'bowser';
 
 // Custom scripts
@@ -49,7 +49,7 @@ const IndexPage = ({data}) => {
         <header className={classNames(styles.grid, styles.header)}>
           {bowser.msie ?
             <img className={styles.logo} src={logoPNG}/> :
-            <img className={styles.logo} src={logoSVG}/>
+            <img className={styles.logo} src={logoPNG}/>
           }
           <div className={styles.nav}>
             { headerData.frontmatter.navigation.map((navItem, key) => (
@@ -105,7 +105,7 @@ const IndexPage = ({data}) => {
         </section>
 
         {/* Viewpoints */}
-        <section className={styles.grid} name={headerData.frontmatter.navigation[2]}>
+        <section className={classNames(styles.grid, styles.gridPaddingLarge)} name={headerData.frontmatter.navigation[2]}>
           <div className={styles.grid24}>
             <Marquee title="Debat"/>
           </div>

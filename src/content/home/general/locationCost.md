@@ -13,4 +13,4 @@ Ticket: 165 euro - tot en met 15 mei vroegboekkorting: 135 euro (incl. BTW en lu
 Freelancers korting: 75 euro (incl. BTW en lunch).
 Ticket voor studenten (op vertoon van een geldige collegekaart): 25 euro.
 
-Voor groepsreserveringen of vragen mail naar info@expertisecentrumjournalistiek.nl.
+Voor groepsreserveringen of vragen mail naar [info@expertisecentrumjournalistiek.nl](mailto:info@expertisecentrumjournalistiek.nl).

@@ -21,6 +21,7 @@ const TemplateWrapper = ({ children }) => {
       meta={[
         { name: 'description', content: 'Met trots presenteert het Expertisecentrum Journalistiek op dinsdag 19 juni 2018 voor de achtste achtereenvolgende keer: De Grote Expertisedag Nieuwe Media #8' },
         { name: 'keywords', content: 'sample, something' },
+        { name: 'theme-color', content: '#d7bda5' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@ecjournalistiek' },
         { name: 'twitter:creator', content: '' },

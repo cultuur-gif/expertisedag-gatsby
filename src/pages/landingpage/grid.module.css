@@ -57,6 +57,10 @@
     grid-row-gap: 2rem;
   }
 
+  .gridPaddingLarge {
+    padding: 0 2rem 4rem 2rem;
+  }
+
   .grid6 {
     display: block;
     width: unset;

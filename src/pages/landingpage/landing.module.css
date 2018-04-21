@@ -9,7 +9,7 @@
 .headerRight {
   display: inline-flex;
   max-width: 40rem;
-  padding: 2.4rem 2rem 4.8rem 2rem;
+  padding: 2.8rem 2.8rem 4.2rem 2.8rem;
   vertical-align: top;
   text-align: left;
 
@@ -31,7 +31,7 @@
   .headerRight {
     display: flex;
     max-width: unset;
-    padding: 2.4rem 0 4.8rem 0;
+    padding: 2.8rem 0rem 1.4rem 0rem;
     vertical-align: unset;
     text-align: unset;
 
@@ -102,7 +102,17 @@
     grid-column: 1 / 25;
   }
 
+  .title {
+    font-size: 1.728rem;
+    line-height: 2.8rem;
+  }
+
   .landingText {
     grid-column: 1 / 25;
+  }
+
+  .landingText p {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
   }
 }
