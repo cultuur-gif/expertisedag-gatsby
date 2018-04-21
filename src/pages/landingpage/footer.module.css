@@ -4,47 +4,71 @@
 }
 
 .affiliates {
-  align-content: start;
-  background-color: rgb(220, 220, 220);
-  display: grid;
-  grid-column: 1 / span 12;
-  grid-column-gap: 2rem;
-  grid-template-columns: repeat(12, 1fr);
-  height: 35rem;
   position: relative;
+  height: 35rem;
+  background-color: rgb(220, 220, 220);
+}
+
+@supports (display:grid) {
+  .affiliates {
+    display: grid;
+    grid-column-gap: 2rem;
+    grid-template-columns: repeat(12, 1fr);
+    align-content: start;
+  }
 }
 
 .affiliates::before {
-  background-color: rgb(220, 220, 220);
   content: "";
-  display: block;
-  height: 35rem;
+
   position: absolute;
   right: 100%;
+
+  display: block;
   width: 100vw;
+  height: 35rem;
+
+  background-color: rgb(220, 220, 220);
 }
 
 .affiliatesHeader {
-  color: rgb(118, 118, 118);
-  grid-column: 1 / span 12;
   margin: 2.8rem 0 0;
+  color: rgb(118, 118, 118);
 }
 
 .affiliateLogo {
-  align-self: center;
-  grid-column: auto / span 5;
+  width: 40%;
   padding: 1.4rem 0 0 0;
 }
 
-.affiliateLogo:nth-of-type(3n) {
-  grid-column: 7 / span 5;
+@supports (display:grid) {
+  .affiliatesHeader {
+    grid-column: 1 / span 12;
+  }
+
+  .affiliateLogo {
+    width: unset;
+    grid-column: auto / span 5;
+    align-self: center;
+  }
+
+  .affiliateLogo:nth-of-type(3n) {
+    grid-column: 7 / span 5;
+  }
 }
+
+/* Rightside */
 
 .footerInfo {
   background-color: rgb(244, 244, 244);
-  grid-column: 13 / span 12;
-  padding: 2.8rem 0 0 0;
+  padding: 2.8rem 0 0 2rem;
   position: relative;
+}
+
+@supports (display:grid) {
+  .footerInfo {
+    padding: 2.8rem 0 0 0;
+  }
 }
 
 .footerInfo p {

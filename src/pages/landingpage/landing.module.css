@@ -1,13 +1,42 @@
 .headerImg {
-  grid-column: 2 / 11;
+  display: inline-block;
+  max-width: 30rem;
+  padding: 1rem 2rem;
+  vertical-align: top;
+  text-align: left;
 }
 
 .headerRight {
-  grid-column: 11 / 25;
-  padding: 2.4rem 0 4.8rem 0;
-  display: flex;
+  display: inline-flex;
+  max-width: 40rem;
+  padding: 2.4rem 2rem 4.8rem 2rem;
+  vertical-align: top;
+  text-align: left;
+
   flex-direction: column;
   align-items: flex-start;
+}
+
+@supports (display:grid) {
+  .headerImg {
+    display: block;
+    max-width: 100%;
+    padding: 0;
+    vertical-align: unset;
+    text-align: unset;
+
+    grid-column: 2 / 11;
+  }
+
+  .headerRight {
+    display: flex;
+    max-width: unset;
+    padding: 2.4rem 0 4.8rem 0;
+    vertical-align: unset;
+    text-align: unset;
+
+    grid-column: 12 / 25;
+  }
 }
 
 /* Don't like this typographic disturbance. */
@@ -15,6 +44,7 @@
   color: rgb(255, 255, 0);
   font-size: 2.369rem;
   line-height: 3.5rem;
+  max-width: 50rem;
 }
 
 .subtitle {
@@ -38,7 +68,24 @@
 }
 
 .landingText {
-  grid-column: 4 / 20;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  padding: 1rem 2rem;
+
+  max-width: 60rem;
+}
+
+@supports (display:grid) {
+  .landingText {
+    display: block;
+    vertical-align: unset;
+    text-align: unset;
+    max-width: unset;
+    padding: 1rem 0rem;
+
+    grid-column: 4 / 20;
+  }
 }
 
 .landingText p {

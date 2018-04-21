@@ -1,8 +1,9 @@
 import React from 'react'
 import classNames from 'classnames'
 import Img from "gatsby-image"
-import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll"
+import { Link } from "react-scroll"
 import { Timeline, Hashtag } from 'react-twitter-widgets'
+import bowser from 'bowser';
 
 // Custom scripts
 import generateCalendar from "../components/ical.js"
@@ -33,7 +34,8 @@ const styles = {
 }
 
 // Images
-import logo from "./landingpage/logo.svg"
+import logoSVG from "./landingpage/logo.svg"
+import logoPNG from "./landingpage/logo.png"
 import nose from "./landingpage/nose.svg"
 
 const IndexPage = ({data}) => {
@@ -45,7 +47,10 @@ const IndexPage = ({data}) => {
       <div className={styles.page}>
         {/* Page header  */}
         <header className={classNames(styles.grid, styles.header)}>
-          <img className={styles.logo} src={logo}/>
+          {bowser.msie ?
+            <img className={styles.logo} src={logoPNG}/> :
+            <img className={styles.logo} src={logoSVG}/>
+          }
           <div className={styles.nav}>
             { headerData.frontmatter.navigation.map((navItem, key) => (
               <Link
@@ -145,7 +150,7 @@ const IndexPage = ({data}) => {
 
         {/* Location and costs */}
         <section className={classNames(styles.grid, styles.location)} name={headerData.frontmatter.navigation[3]}>
-          <div className={styles.map}>
+          <div className={classNames(styles.grid12, styles.map)}>
             <Map
               isMarkerShown
               apiKey={locCostData.frontmatter.locationApiKey}
@@ -155,7 +160,7 @@ const IndexPage = ({data}) => {
                 lng: Number(locCostData.frontmatter.location[1])}}
             />
           </div>
-          <div className={styles.costs}>
+          <div className={classNames(styles.grid12, styles.costs)}>
             <Marquee title="Locatie & Kosten &" secundary={true} />
             <div dangerouslySetInnerHTML={{ __html: locCostData.html }}></div>
           </div>
@@ -164,7 +169,7 @@ const IndexPage = ({data}) => {
 
       {/* Footer  */}
         <section className={classNames(styles.grid, styles.footer)}>
-          <div className={styles.affiliates}>
+          <div className={classNames(styles.grid12, styles.affiliates)}>
             <h3 className={styles.affiliatesHeader}>Organisatie</h3>
             { footerData.frontmatter.logosOrganisatie.map((logo, key) => {
               return (<div className={styles.affiliateLogo} key={key}>
@@ -178,12 +183,12 @@ const IndexPage = ({data}) => {
               </div>);
             })}
           </div>
-          <div className={styles.footerInfo} dangerouslySetInnerHTML={{__html: footerData.html}} />
+          <div className={classNames(styles.grid12, styles.footerInfo)} dangerouslySetInnerHTML={{__html: footerData.html}} />
         </section>
       </div>
 
       <div className={classNames(styles.centerer)}>
-        <Dialog>{headerData.frontmatter.dialog}</Dialog>
+        <Dialog button="Bestellen" text={headerData.frontmatter.dialog} buttonLink="http://www.expertisecentrumjournalistiek.nl/agenda/19-juni-2018-de-grote-expertisedag-nieuwe-media/"/>
       </div>
 
     </div>);

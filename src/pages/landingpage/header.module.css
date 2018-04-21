@@ -1,4 +1,6 @@
 .header {
+  display: flex;
+  justify-content: space-between;
   padding: 2rem;
 }
 
@@ -16,7 +18,6 @@
   display: flex;
   grid-column: span 24 / 25;
   grid-row: 1;
-  justify-self: end;
 }
 
 .navItem {
