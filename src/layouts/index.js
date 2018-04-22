@@ -5,8 +5,6 @@ import bowser from 'bowser';
 
 import Dialog from "../components/Dialog"
 
-import imageobject from './socialmedia.png';
-
 {/* Global CSS */}
 import './index.css'
 import './typography.css'
@@ -14,27 +12,24 @@ import './typography.css'
 {/* Modular CSS */}
 import styles from "./index.module.css";
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ data, children }) => {
+  let frontmatter = data.meta.edges[3].node.frontmatter
   return (<main className={styles.main} >
     <Helmet
-      title="Expertisedag Nieuwe Media 2018"
+      title={frontmatter.title}
       meta={[
-        { name: 'description', content: 'Met trots presenteert het Expertisecentrum Journalistiek op dinsdag 19 juni 2018 voor de achtste achtereenvolgende keer: De Grote Expertisedag Nieuwe Media #8' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: frontmatter.description },
+        { name: 'keywords', content: frontmatter.metaTags.join(", ") },
         { name: 'theme-color', content: '#d7bda5' },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:site', content: '@ecjournalistiek' },
-        { name: 'twitter:creator', content: '' },
-        { name: 'twitter:title', content: 'Grote Expertisedag Nieuwe Media 2018' },
-        { name: 'twitter:description', content: 'Waarheid en vertrouw – Journalistiek die terugvecht' },
-        { name: 'twitter:image', content: imageobject },
+        { name: 'twitter:site', content: frontmatter.twitterHandle },
+        { name: 'twitter:creator', content: frontmatter.author },
+        { name: 'twitter:title', content: frontmatter.title },
+        { name: 'twitter:description', content: frontmatter.description },
+        { name: 'twitter:image', content: frontmatter.socialMediaImage.childImageSharp.resolutions.src },
       ]}
     />
-    {/* {bowser.msie && <div className={styles.browserCatch}><h1>Deze website ondersteunt Internet Explorer niet. U wordt aangeraden uw browser te updaten. Of klik <a href="http://www.expertisecentrumjournalistiek.nl/grote-expertisedag-nieuwe-media-2018/">hier</a> om het programma op de website van het Expertisecentrum Journalistiek te bekijken.</h1></div> }
-    {!bowser.msie && children()} */}
-
     {bowser.msie && <Dialog text="Deze website ondersteunt Internet Explorer niet optimaal. U wordt aangeraden uw browser te updaten." position="top"/> }
-
     {children()}
   </main>
 )}
@@ -44,3 +39,33 @@ TemplateWrapper.propTypes = {
 }
 
 export default TemplateWrapper
+
+export const query = graphql`
+  query layoutQuery {
+    meta: allMarkdownRemark(
+      filter: {id: {regex: "//home/general//"}},
+      sort: { order: ASC, fields: [frontmatter___order]}
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            description
+            author
+            dateUnformatted
+            socialMediaImage {
+              childImageSharp {
+                resolutions(width: 2048) {
+                  ...GatsbyImageSharpResolutions
+                }
+              }
+            }
+            metaTags
+            twitterHandle
+          }
+        }
+      }
+    }
+  }
+`;

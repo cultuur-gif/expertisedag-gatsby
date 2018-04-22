@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Expertisedag Nieuwe Media 2018',
+    title: 'Expertisedag Nieuwe Media 2018'
   },
   plugins: ['gatsby-plugin-react-helmet',
             {
@@ -40,8 +40,35 @@ module.exports = {
                 icon: "src/images/favicon.png", // This path is relative to the root of the site.
               }
             },
-
-            'gatsby-transformer-remark',
+            {
+              resolve: `gatsby-plugin-google-analytics`,
+              options: {
+                trackingId: "UA-117915470-1",
+                head: true,
+                anonymize: true,
+                respectDNT: true
+              },
+            },
+            {
+              resolve: `gatsby-transformer-remark`,
+              options: {
+                plugins: [
+                {
+                  resolve: "gatsby-remark-external-links",
+                  options: {
+                    target: "_blank",
+                    rel: "noopener noreferrer"
+                  }
+                }
+                ]
+              }
+            },
+            {
+              resolve: `gatsby-plugin-netlify-cms`,
+              options: {
+                modulePath: `${__dirname}/src/cms/cms.js`,
+              },
+            },
             `gatsby-transformer-sharp`,
             `gatsby-plugin-sharp`,
             `gatsby-plugin-netlify` // make sure to put last in the array

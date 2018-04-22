@@ -17,63 +17,62 @@ const generateCalendar = (events) => {
   // Events setup and push
   events.map((eventData, key)=>{
     let event
-    const description = new Property({
-      name: 'DESCRIPTION',
-      parameters: { VALUE: 'TEXT' },
-      value: eventData.node.frontmatter.description
-    })
-    const summery = new Property({
-      name: 'SUMMARY',
-      parameters: { VALUE: 'TEXT' },
-      value: eventData.node.frontmatter.title
-    })
-    const location = new Property({
-      name: 'LOCATION',
-      parameters: { VALUE: 'TEXT' },
-      value: eventData.node.frontmatter.room
-    })
-    const url = new Property({
-      name: 'URL',
-      parameters: { VALUE: 'TEXT' },
-      value: eventData.node.frontmatter.url
-    })
-    const createTimeProperty = new Property({
-      name: 'DTSTAMP',
-      parameters: { VALUE: 'DATETIME' },
-      value: new Date()
-    })
-    const startTimeProperty = new Property({
-      name: 'DTSTART',
-      parameters: { VALUE: 'DATETIME' },
-      value: new Date(eventData.node.frontmatter.startTime)
-    })
-    const endTimeProperty = new Property({
-      name: 'DTEND',
-      parameters: { VALUE: 'DATETIME' },
-      value: new Date(eventData.node.frontmatter.endTime)
-    })
-    const uid = new Property({
-      name: 'UID',
-      parameters: { VALUE: 'TEXT' },
-      value: (function guid() {
-                function s4() {
-                  return Math.floor((1 + Math.random()) * 0x10000)
-                    .toString(16)
-                    .substring(1);
-                }
-                return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-              })()
-    })
     event = new Component({ name: 'VEVENT' })
-    event = event.pushProperty(description);
-    event = event.pushProperty(summery);
-    event = event.pushProperty(location);
-    event = event.pushProperty(url);
-    event = event.pushProperty(createTimeProperty);
-    event = event.pushProperty(startTimeProperty);
-    event = event.pushProperty(endTimeProperty);
-    event = event.pushProperty(uid);
+    const properties = [
+      new Property({
+        name: 'DESCRIPTION',
+        parameters: { VALUE: 'TEXT' },
+        value: eventData.node.frontmatter.description
+      }),
+      new Property({
+        name: 'SUMMARY',
+        parameters: { VALUE: 'TEXT' },
+        value: eventData.node.frontmatter.title
+      }),
+      new Property({
+        name: 'LOCATION',
+        parameters: { VALUE: 'TEXT' },
+        value: eventData.node.frontmatter.room
+      }),
+      new Property({
+        name: 'URL',
+        parameters: { VALUE: 'TEXT' },
+        value: eventData.node.frontmatter.url
+      }),
+      new Property({
+        name: 'DTSTAMP',
+        parameters: { VALUE: 'DATETIME' },
+        value: new Date()
+      }),
+      new Property({
+        name: 'DTSTART',
+        parameters: { VALUE: 'DATETIME' },
+        value: new Date(eventData.node.frontmatter.startTime)
+      }),
+      new Property({
+        name: 'DTEND',
+        parameters: { VALUE: 'DATETIME' },
+        value: new Date(eventData.node.frontmatter.endTime)
+      }),
+      new Property({
+        name: 'UID',
+        parameters: { VALUE: 'TEXT' },
+        value: (function guid() {
+                  function s4() {
+                    return Math.floor((1 + Math.random()) * 0x10000)
+                      .toString(16)
+                      .substring(1);
+                  }
+                  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+                })()
+      })];
+
+    properties.map((value, key)=>{
+      event = event.pushProperty(value);
+    })
+
     calendar = calendar.pushComponent(event)
+
   })
   console.log(calendar.toString());
   // Conversion to file

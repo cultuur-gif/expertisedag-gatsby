@@ -6,14 +6,16 @@ import bowser from "bowser"
 import logoSVG from "../images/logo.svg"
 import logoPNG from "../images/logo.png"
 
-import stylesGrid from "./landingpage/grid.module.css"
-import stylesHeader from "./landingpage/header.module.css"
+import stylesGrid from "../pages/landingpage/grid.module.css"
+import stylesHeader from "../pages/landingpage/header.module.css"
 const styles = {
   ...stylesGrid,
   ...stylesHeader
 }
 
-const NotFoundPage = () => {
+export default function Template({data}) {
+  const { markdownRemark } = data;
+  const { frontmatter, html } = markdownRemark;
   return (
     <div className={styles.screen}>
       <div
@@ -42,13 +44,30 @@ const NotFoundPage = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            paddingBottom: '10rem'
+            padding: '2.4rem 2.4rem 9.6rem'
           }}
         >
-          <h1>404 - NOT FOUND</h1>
-          <h1>Deze pagina bestaat helaas niet, klik <Link to="">hier</Link></h1>
+          <h1 style={{margin: 0}}>{frontmatter.title}</h1>
+          <h3>{frontmatter.date}</h3>
+          <div
+            style={{maxWidth: '50rem'}}
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </div>
       </div>
-    </div>)}
+    </div>
+  )
+};
 
-export default NotFoundPage
+export const pageQuery = graphql`
+  query MyOwnBlogThingy($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        path
+        title
+      }
+    }
+  }
+`;

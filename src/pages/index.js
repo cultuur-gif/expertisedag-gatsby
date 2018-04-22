@@ -2,8 +2,10 @@ import React from 'react'
 import classNames from 'classnames'
 import Img from "gatsby-image"
 import { Link } from "react-scroll"
-// import { Timeline, Hashtag } from 'react-twitter-widgets'
+const ScrollLink = Link;
+import GatsbyLink from "gatsby-link"
 import bowser from 'bowser';
+// import { Timeline } from 'react-twitter-widgets'
 
 // Custom scripts
 import generateCalendar from "../components/ical.js"
@@ -34,8 +36,8 @@ const styles = {
 }
 
 // Images
-import logoSVG from "./landingpage/logo.svg"
-import logoPNG from "./landingpage/logo.png"
+import logoSVG from "../images/logo.svg"
+import logoPNG from "../images/logo.png"
 import nose from "./landingpage/nose.svg"
 
 const IndexPage = ({data}) => {
@@ -47,20 +49,24 @@ const IndexPage = ({data}) => {
       <div className={styles.page}>
         {/* Page header  */}
         <header className={classNames(styles.grid, styles.header)}>
-          {bowser.msie ?
-            <img className={styles.logo} src={logoPNG}/> :
-            <img className={styles.logo} src={logoPNG}/>
-          }
+          <GatsbyLink
+            to="/"
+            >
+            {bowser.msie ?
+              <img className={styles.logo} src={logoPNG}/> :
+              <img className={styles.logo} src={logoSVG}/>}
+          </GatsbyLink>
           <div className={styles.nav}>
             { headerData.frontmatter.navigation.map((navItem, key) => (
-              <Link
+              <ScrollLink
                 className={styles.navItem}
                 key={key}
                 to={navItem}
-                smooth={true}>
+                smooth={true}
+              >
                 {navItem}
-              </Link>)
-            )}
+              </ScrollLink>
+            ))}
           </div>
         </header>
 
@@ -183,7 +189,15 @@ const IndexPage = ({data}) => {
               </div>);
             })}
           </div>
-          <div className={classNames(styles.grid12, styles.footerInfo)} dangerouslySetInnerHTML={{__html: footerData.html}} />
+          <div className={classNames(styles.grid12, styles.footerInfo)}>
+            <div dangerouslySetInnerHTML={{__html: footerData.html}} />
+            <div>
+              <p>
+                {/* <GatsbyLink to="/blog/privacy/">Privacy Statement</GatsbyLink> - */}
+                <a href="javascript:gaOptout();">Deactiveer Google Analytics</a>
+              </p>
+            </div>
+          </div>
         </section>
       </div>
 
