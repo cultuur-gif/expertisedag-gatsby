@@ -3,16 +3,102 @@ backend:
   repo: cultuur-gif/expertisedag-gatsby
   branch: content
 
-media_folder: static/assets
+media_folder: images
+
+publish_mode: editorial_workflow
+
+display_url: https://content.genm18.com
 
 collections:
   - name: blog
-    label: Blog
+    label: Blogpost
     folder: src/content/blogposts
+    disable_preview: true
+    editor:
+      preview: false
     create: true
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: authors, label: Authors, widget: list }
-      - { name: "body", label: "Body", widget: "markdown" }
+      - { name: body, label: Text, widget: markdown }
+  - name: event
+    label: Event
+    folder: src/content/home/agenda
+    editor:
+      preview: false
+    create: true
+    fields:
+      - { name: startTime, label: Starting Time, widget: datetime, required: true }
+      - { name: endTime, label: Ending Time, widget: datetime, required: true }
+      - { name: title, label: Title, required: true, default: Event }
+      - { name: room, label: Location }
+      - { name: order, label: Order, widget: number }
+      - { name: url, label: Attachment or URL }
+      - { name: body, label: Text, widget: markdown }
+  - name: person
+    label: Person
+    folder: src/content/home/persons
+    editor:
+      preview: false
+    create: true
+    fields:
+      - { name: name, label: Name, default: John Doe }
+      - { name: function, label: Function}
+      - { name: smallImage, label: Small Image, widget: custompathimage, customMediaPath: "../../../images/", rawMediaPath: "https://raw.githubusercontent.com/cultuur-gif/expertisedag-gatsby/content/src/images/"}
+      - { name: largeImage, label: Large Image, widget: custompathimage, customMediaPath: "../../../images/", rawMediaPath: "https://raw.githubusercontent.com/cultuur-gif/expertisedag-gatsby/content/src/images/"}
+      - { name: blur, label: Blurred?, widget: boolean}
+      - { name: personType, label: Person Type, widget: select, default: speaker, options: [speaker, casestudy, debate], required: true }
+      - { name: body, label: Text, widget: markdown}
+  - name: page
+    label: Page
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: landingHeader
+        label: Landing Page - Header
+        file: src/content/home/general/landing.md
+        fields:
+            - { name: dateLoc, label: Date and Location, widget: string}
+            - { name: title, label: Title, widget: string }
+            - { name: button, label: Button Text, widget: string }
+            - { name: details, label: Detail Crumbs, widget: list }
+            - { name: navigation, label: Landing Page Navigation, widget: list }
+            - { name: body, label: Emphasis Text, widget: markdown}
+      - name: landingBlock
+        label: Landing Page - Location and Cost
+        file: src/content/home/general/locationCost.md
+        fields:
+            - { name: marqueeTitle, label: Marquee Title, widget: string}
+            - { name: location, label: Location Coordinates, widget: list}
+            - name: locationZoom
+              label: Location Zoomlevel
+              fields:
+                - { name: lat, label: Latitude, widget: number}
+                - { name: long, label: Longtitude, widget: number}
+            - { name: body, label: Cost Text, widget: markdown}
+  - name: global
+    label: Global
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: meta
+        label: Metadata
+        file: src/content/home/general/meta.md
+        fields:
+            - { name: title, label: Site Title, widget: string}
+            - { name: description, label: Site Description, widget: string }
+            - { name: author, label: Site Author, widget: string }
+            - { name: socialMediaImage, label: Social Media Image, widget: custompathimage, customMediaPath: "../../../images/", rawMediaPath: "https://raw.githubusercontent.com/cultuur-gif/expertisedag-gatsby/content/src/images/" }
+            - { name: metaTags, label: SEO tags, widget: list }
+            - { name: twitterHandle, label: Twitter Handle, widget: string }
+      - name: footer
+        label: Footer
+        file: src/content/home/general/footer.md
+        fields:
+            - { name: logosOrganisatie, label: Social Media Image, widget: custompathimage, customMediaPath: "../../../images/", rawMediaPath: "https://raw.githubusercontent.com/cultuur-gif/expertisedag-gatsby/content/src/images/" }
+            - { name: logosOndersteuning, label: Social Media Image, widget: custompathimage, customMediaPath: "../../../images/", rawMediaPath: "https://raw.githubusercontent.com/cultuur-gif/expertisedag-gatsby/content/src/images/" }
+            - { name: body, label: Text, widget: markdown}

@@ -53,7 +53,6 @@ export const query = graphql`
             title
             description
             author
-            dateUnformatted
             socialMediaImage {
               childImageSharp {
                 resolutions(width: 2048) {

@@ -36,9 +36,9 @@ const styles = {
 }
 
 // Images
-import logoSVG from "../images/logo.svg"
-import logoPNG from "../images/logo.png"
-import nose from "./landingpage/nose.svg"
+import logoSVG from "../../images/logo.svg"
+import logoPNG from "../../images/logo.png"
+import nose from "../../images/nose.svg"
 
 const IndexPage = ({data}) => {
   const headerData = data.general.edges[0].node;
@@ -91,9 +91,9 @@ const IndexPage = ({data}) => {
           <div className={styles.grid24}>
             <Marquee title="Sprekers"/>
           </div>
-          { data.speakers.edges.map((speaker, key) => {
-            return (<div className={styles.grid24} key={key}>
-              <Sheet speaker={speaker}/>
+          { data.persons.edges.map((person, key) => {
+            return (person.node.frontmatter.personType == "speaker") && (<div className={styles.grid24} key={key}>
+              <Sheet data={person}/>
             </div>);
           })}
         </section>
@@ -103,9 +103,9 @@ const IndexPage = ({data}) => {
           <div className={styles.grid24}>
             <Marquee title="Case studies"/>
           </div>
-          { data.caseStudies.edges.map((caseStudy, key) => {
-            return (<div className={styles.grid6} key={key}>
-              <Card data={caseStudy} key={key}/>
+          { data.persons.edges.map((person, key) => {
+            return (person.node.frontmatter.personType == "casestudy") && (<div className={styles.grid6} key={key}>
+              <Card data={person} key={key}/>
             </div>);
           })}
         </section>
@@ -115,9 +115,9 @@ const IndexPage = ({data}) => {
           <div className={styles.grid24}>
             <Marquee title="Debat"/>
           </div>
-          { data.viewpoints.edges.map((viewpoint, key) => {
-            return (<div className={styles.grid6} key={key}>
-              <Card data={viewpoint} key={key}/>
+          { data.persons.edges.map((person, key) => {
+            return (person.node.frontmatter.personType == "debate") && (<div className={styles.grid6} key={key}>
+              <Card data={person} key={key}/>
             </div>);
           })}
         </section>
@@ -162,8 +162,8 @@ const IndexPage = ({data}) => {
               apiKey={locCostData.frontmatter.locationApiKey}
               zoom={parseFloat(locCostData.frontmatter.locationZoom)}
               location={{
-                lat: parseFloat(locCostData.frontmatter.location[0]),
-                lng: Number(locCostData.frontmatter.location[1])}}
+                lat: parseFloat(locCostData.frontmatter.location.lat),
+                lng: Number(locCostData.frontmatter.location.lng)}}
             />
           </div>
           <div className={classNames(styles.grid12, styles.costs)}>
@@ -173,7 +173,7 @@ const IndexPage = ({data}) => {
         </section>
 
 
-      {/* Footer  */}
+        {/* Footer  */}
         <section className={classNames(styles.grid, styles.footer)}>
           <div className={classNames(styles.grid12, styles.affiliates)}>
             <h3 className={styles.affiliatesHeader}>Organisatie</h3>
@@ -193,7 +193,7 @@ const IndexPage = ({data}) => {
             <div dangerouslySetInnerHTML={{__html: footerData.html}} />
             <div>
               <p>
-                {/* <GatsbyLink to="/blog/privacy/">Privacy Statement</GatsbyLink> - */}
+                <GatsbyLink to="/blog/privacy/">Privacy Statement</GatsbyLink> -
                 <a href="javascript:gaOptout();">Deactiveer Google Analytics</a>
               </p>
             </div>
@@ -213,7 +213,7 @@ export default IndexPage
 export const query = graphql`
   query indexQuery {
     general: allMarkdownRemark(
-      filter: {id: {regex: "//home/general//"}},
+      filter: {id: {regex: "//content/home/general//"}},
       sort: { order: ASC, fields: [frontmatter___order]}
     ) {
       edges {
@@ -241,15 +241,18 @@ export const query = graphql`
                 }
               }
             }
-            location
+            location {
+              lat
+              lng
+            }
             locationZoom
           }
           html
         }
       }
     }
-    speakers: allMarkdownRemark(
-      filter: {id: {regex: "//home/speakers//"}},
+    persons: allMarkdownRemark(
+      filter: {id: {regex: "//content/home/persons//"}},
       sort: { order: ASC, fields: [frontmatter___order]}
     ) {
       edges {
@@ -258,10 +261,21 @@ export const query = graphql`
           frontmatter {
             name
             function
-            featuredImage {
+            blur
+            special
+            quote
+            personType
+            largeImage {
               childImageSharp {
                 sizes(maxWidth: 800) {
                   ...GatsbyImageSharpSizes
+                }
+              }
+            }
+            smallImage {
+              childImageSharp {
+                resolutions(width: 110) {
+                  ...GatsbyImageSharpResolutions
                 }
               }
             }
@@ -270,56 +284,8 @@ export const query = graphql`
         }
       }
     }
-    caseStudies: allMarkdownRemark(
-      filter: {id: {regex: "//home/casestudies//"}},
-      sort: { order: ASC, fields: [frontmatter___order]}
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            name
-            function
-            blur
-            featuredImage {
-                childImageSharp {
-                  resolutions(width: 110) {
-                    ...GatsbyImageSharpResolutions
-                  }
-                }
-              }
-          }
-          html
-        }
-      }
-    }
-    viewpoints: allMarkdownRemark(
-      filter: {id: {regex: "//home/viewpoints//"}},
-      sort: { order: ASC, fields: [frontmatter___order]}
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            name
-            function
-            blur
-            leader
-            quote
-            featuredImage {
-                childImageSharp {
-                  resolutions(width: 110) {
-                    ...GatsbyImageSharpResolutions
-                  }
-                }
-              }
-          }
-          html
-        }
-      }
-    }
     agenda: allMarkdownRemark(
-      filter: {id: {regex: "//home/agenda//"}},
+      filter: {id: {regex: "//content/home/agenda//"}},
       sort: { order: ASC, fields: [frontmatter___order]}
     ) {
       edges {

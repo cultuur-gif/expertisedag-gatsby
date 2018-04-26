@@ -3,8 +3,8 @@ import classNames from 'classnames'
 import Link from "gatsby-link"
 import bowser from "bowser"
 
-import logoSVG from "../images/logo.svg"
-import logoPNG from "../images/logo.png"
+import logoSVG from "../../images/logo.svg"
+import logoPNG from "../../images/logo.png"
 
 import stylesGrid from "./landingpage/grid.module.css"
 import stylesHeader from "./landingpage/header.module.css"

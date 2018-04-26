@@ -5,8 +5,6 @@ import moment from 'moment'
 
 import styles from "./index.module.css";
 
-import imgSmouter from "../../content/home/viewpoints/smouter.png";
-
 const ListItem = (props) => {
   const data = props.data.node;
   return (

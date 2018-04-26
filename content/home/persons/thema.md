@@ -1,6 +1,7 @@
 ---
 name: Bas Mesters
 quote: ""
-leader: true
+special: true
 order: 1
+personType: debate
 ---

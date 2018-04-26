@@ -7,16 +7,23 @@ module.exports = {
               resolve: `gatsby-source-filesystem`,
               options: {
                 name: `src`,
-                path: `${__dirname}/src/content`,
+                path: `${__dirname}/content/`,
+              }
+            },
+            {
+              resolve: `gatsby-source-filesystem`,
+              options: {
+                name: `src`,
+                path: `${__dirname}/images/`,
               }
             },
             {
               resolve: `gatsby-plugin-favicon`,
               options: {
-                logo: "./src/images/favicon.png",
+                logo: "./images/favicon.png",
                 injectHTML: true,
                 icons: {
-                  android: true,
+                  android: false,
                   appleIcon: true,
                   appleStartup: true,
                   coast: false,
@@ -37,9 +44,10 @@ module.exports = {
                 background_color: "#d7bda5",
                 theme_color: "#5e358c",
                 display: "minimal-ui",
-                icon: "src/images/favicon.png", // This path is relative to the root of the site.
+                icon: "images/favicon.png", // This path is relative to the root of the site.
               }
             },
+            // `gatsby-plugin-offline`, // After manifest
             {
               resolve: `gatsby-plugin-google-analytics`,
               options: {

@@ -1,8 +1,9 @@
 ---
 name: "Uit LA: Maria Bustillos"
 function: Oprichter Popula
-featuredImage: ./bustillos.jpeg
+largeImage: ../../../images/bustillos.jpeg
 order: 2
+personType: speaker
 ---
 [Maria Bustillos](https://twitter.com/mariabustillos) is hoofdredacteur van [Popula](http://news.joincivil.com/popula/), een journalistiek medium dat op het blockchain-platform [Civil](https://joincivil.com/) draait. Toen zij in 2013 voor The New Yorker over blockchain-technologie schreef, werd zij enthousiast over de mogelijkheden die deze nieuwe technologie de journalistiek kan bieden.
 

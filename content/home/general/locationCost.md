@@ -1,8 +1,8 @@
 ---
 marqueeTitle: Kosten & Locatie
 location:
-  - "52.369438"
-  - "4.89523"
+  lat: 52.369438
+  lng: 4.89523
 locationZoom: 14
 order: 2
 ---
