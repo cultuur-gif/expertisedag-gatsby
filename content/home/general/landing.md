@@ -1,11 +1,11 @@
 ---
 dateLoc: "19 juni 2018 - Oudemanhuispoort, Amsterdam"
 title: Waarheid en vertrouwen – Journalistiek die terugvecht
-button: "Bestel tickets - €135 i.p.v. €165 (tot 15 mei)"
+button: "Bestel tickets - €165"
 details:
   - "Eerste 15 freelancers - €75,00"
   - "Studenten - €25"
-dialog: "Tot 15 mei vroegboekkorting. Regulier - €135,- Freelancers - €75,00. Studenten - €25,-"
+dialog: "Regulier - €165,- NVJ-leden – €135,- VVOJ-leden – €135 Freelancers - €75,00 Studenten - €25,-"
 navigation:
   - Sprekers
   - "Case\u2009studies"
