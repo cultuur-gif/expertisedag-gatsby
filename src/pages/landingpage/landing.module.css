@@ -17,7 +17,7 @@
   align-items: flex-start;
 }
 
-@supports (display:grid) {
+@supports (display: grid) {
   .headerImg {
     display: block;
     max-width: 100%;
@@ -51,22 +51,6 @@
   color: rgb(102, 102, 102);
 }
 
-.crumb {
-  display: inline-block;
-  background: white;
-  transform: rotate(-1deg);
-  margin: 0.7rem 0 0 0.7rem;
-  padding: 0.3rem 0.7rem 0.3rem 0.7rem;
-}
-
-.crumbText {
-  transform: rotate(1deg);
-  color: black;
-  margin: 0;
-  font-family: "Fedra Mono Medium", sans-serif;
-  white-space: nowrap;
-}
-
 .landingText {
   display: inline-block;
   vertical-align: top;
@@ -76,7 +60,7 @@
   max-width: 60rem;
 }
 
-@supports (display:grid) {
+@supports (display: grid) {
   .landingText {
     display: block;
     vertical-align: unset;
