@@ -5,6 +5,6 @@ order: 12
 title: Keynote
 room: "OMHP D108"
 showTime: true
-description: "Matthew Mulligan – Storyful"
+description: "Matthew Mulligan (Storyful) – Verifying the internet"
 url: "http://www.genm18.nl"
 ---
