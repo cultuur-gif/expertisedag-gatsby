@@ -1,6 +1,6 @@
 ---
-startTime: "2018-06-19T14:30:00+02:00"
-endTime: "2018-06-19T15:30:00+02:00"
+startTime: "2018-06-19T11:15:00+02:00"
+endTime: "2018-06-19T11:45:00+02:00"
 showTime: true
 order: 5
 title: Debat
